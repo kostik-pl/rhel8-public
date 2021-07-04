@@ -17,5 +17,9 @@ if ! grep -q '/_data' /etc/fstab ; then
 	printf "$disk2\n" >> /etc/fstab
 fi
 
+#Setup PODMAN
+dnf module install container-tools
+dnf install podman-docker
+
 #Reboot
-#reboot
+reboot
