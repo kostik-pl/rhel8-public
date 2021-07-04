@@ -18,8 +18,8 @@ if ! grep -q '/_data' /etc/fstab ; then
 fi
 
 #Setup PODMAN
-dnf module install container-tools
-dnf install podman-docker
+dnf -y module install container-tools
+dnf -y install podman-docker
 
 #Reboot
 reboot
