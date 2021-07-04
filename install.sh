@@ -5,7 +5,7 @@ dnf -y update
 dnf -y install mc
 dnf -y install pcp-system-tools
 systemctl enable pmcd
-sed 's/enforcing/disabled/g' /etc/selinux/config
+sed -i 's/enforcing/disabled/g' /etc/selinux/config
 
 #Setup disk
 disk1="/dev/disk/by-label/_container /_container auto nosuid,nodev,nofail,x-gvfs-show 0 0"
