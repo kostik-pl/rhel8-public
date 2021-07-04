@@ -18,4 +18,4 @@ if ! grep -q '/_data' /etc/fstab ; then
 fi
 
 #Reboot
-reboot
+#reboot
