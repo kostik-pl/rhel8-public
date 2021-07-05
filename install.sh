@@ -21,5 +21,8 @@ fi
 dnf -y module install container-tools
 dnf -y install podman-docker
 
+#Create rootless user for pomdman
+sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'RheujvDhfub72') podman
+
 #Reboot
 reboot
