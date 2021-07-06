@@ -20,9 +20,10 @@ fi
 #Setup PODMAN
 dnf -y module install container-tools
 dnf -y install podman-docker
-
-#Create rootless user for pomdman
+sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_container"/g' /etc/containers/storage.conf
+#Create adn configure rootless user for pomdman
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'RheujvDhfub72') podman
+mkdir -p /home/podman/.config/systemd/useradd
 
 #Reboot
 reboot
