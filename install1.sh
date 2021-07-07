@@ -8,5 +8,4 @@ sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_containe
 #sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'RheujvDhfub72') podman
 #mkdir -p /home/podman/.config/systemd/user
 
-
 podman run --name pgpro -d -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-rhel8
