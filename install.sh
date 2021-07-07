@@ -18,7 +18,7 @@ then
 	printf "$DISK1\n" >> /etc/fstab
     fi
 else
-    echo $FILE1 not found
+    echo "Disk labeled as $FILE1 not found"
     exit 1
 fi
 if [ -L "$FILE2" ]
@@ -27,7 +27,7 @@ then
 	printf "$DISK2\n" >> /etc/fstab
     fi
 else
-    echo $FILE2 not found
+    echo "Disk labeled as $FILE2 not found"
     exit 1
 fi
 
