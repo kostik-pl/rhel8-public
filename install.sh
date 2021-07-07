@@ -31,6 +31,5 @@ else
     exit 1
 fi
 
-
 #Reboot
 reboot
