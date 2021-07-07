@@ -15,7 +15,7 @@ DISK2="/dev/disk/by-label/_data /_data auto nosuid,nodev,nofail,x-gvfs-show 0 0"
 if [ -L "$FILE1" ]
 then
     if ! grep -q '/_container' /etc/fstab ; then
-	sed -i -e '"$DISK1\n"' /etc/fstab
+	printf "$DISK1\n" >> /etc/fstab
     fi
 else
     echo "Disk labeled as $FILE1 not found"
@@ -24,7 +24,7 @@ fi
 if [ -L "$FILE2" ]
 then
     if ! grep -q '/_data' /etc/fstab ; then
-	sed -i -e '"$DISK2\n" /etc/fstab
+	printf "$DISK2\n" >> /etc/fstab
     fi
 else
     echo "Disk labeled as $FILE2 not found"
