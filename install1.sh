@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #Setup PODMAN
 dnf -y module install container-tools
 dnf -y install podman-docker
