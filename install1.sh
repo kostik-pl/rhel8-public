@@ -12,5 +12,18 @@ sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_containe
 groupadd -r postgres --gid=9999
 useradd -r -M -g postgres --uid=9999 postgres
 
+#Check access rights
+if [ ! -d "/_data/pg_backup"] ; then
+    mkdir /_data/pg_backup
+fi
+chown -R postgers:postgres /_data/pg_backup
+chmod -R 40700 /_data/pg_backup
+
+if [ ! -d "/_data/pg_data"] ; then
+    mkdir /_data/pg_data
+fi
+chown -R postgers:postgres /_data/pg_data
+chmod -R 40700 /_data/pg_data
+
 #
 podman run --name pgpro -d -v /_data:/_data docker.io/docker/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
