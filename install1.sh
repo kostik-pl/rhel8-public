@@ -31,3 +31,4 @@ chmod -R 40700 /_data/pg_data
 
 #
 podman run --name pgpro -d -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
+podman exec -ti pgpro psql -f /_data/pg_backup/work.out  postgres
