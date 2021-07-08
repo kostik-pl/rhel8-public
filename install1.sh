@@ -24,11 +24,11 @@ fi
 chown -R postgres:postgres /_data/pg_backup
 chmod -R 40700 /_data/pg_backup
 
-if [ ! -d "/_data/pg_data" ] ; then
-    mkdir /_data/pg_data
-fi
-chown -R postgres:postgres /_data/pg_data
-chmod -R 40700 /_data/pg_data
+#if [ ! -d "/_data/pg_data" ] ; then
+#    mkdir /_data/pg_data
+#fi
+#chown -R postgres:postgres /_data/pg_data
+#chmod -R 40700 /_data/pg_data
 
 #
 podman run --name pgpro -d -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
