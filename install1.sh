@@ -13,6 +13,10 @@ groupadd -r postgres --gid=9999
 useradd -r -M -g postgres --uid=9999 postgres
 
 #Check access rights
+chown -R root:root /_data
+chown -R root:root /_container
+chmod -R 40777 /_data
+
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
 fi
