@@ -16,6 +16,7 @@ useradd -r -M -g postgres --uid=9999 postgres
 chown -R root:root /_data
 chown -R root:root /_container
 chmod -R 40777 /_data
+chmod -R 40700 /_container
 
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
