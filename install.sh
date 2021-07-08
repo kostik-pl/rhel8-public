@@ -6,11 +6,11 @@ FILE2="/dev/disk/by-label/_data"
 DISK2="/dev/disk/by-label/_data /_data auto nosuid,nodev,nofail,x-gvfs-show 0 0"
 
 #Check disk
-if ! [ -L "$FILE1" ] ; then
+if [ ! -L "$FILE1" ] ; then
     echo "Disk labeled as $FILE1 not found"
     exit 1
 fi
-if ! [ -L "$FILE2" ] ; then
+if [ ! -L "$FILE2" ] ; then
     echo "Disk labeled as $FILE2 not found"
     exit 1
 fi
