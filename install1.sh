@@ -16,7 +16,7 @@ useradd -r -M -g postgres --uid=9999 postgres
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
 fi
-chown -R postgers:postgres /_data/pg_backup
+chown -R postgres:postgres /_data/pg_backup
 chmod -R 40700 /_data/pg_backup
 
 if [ ! -d "/_data/pg_data" ] ; then
