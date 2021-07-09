@@ -26,12 +26,6 @@ fi
 chown -R postgres:postgres /_data/pg_backup
 chmod -R 40700 /_data/pg_backup
 
-#if [ ! -d "/_data/pg_data" ] ; then
-#    mkdir /_data/pg_data
-#fi
-#chown -R postgres:postgres /_data/pg_data
-#chmod -R 40700 /_data/pg_data
-
 #Start PGPRO container and restore database
 podman run --name pgpro --ip 10.88.0.2 --hostname pgpro.local -dt -p 5432:5432 -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
 podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
