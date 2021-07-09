@@ -23,10 +23,6 @@ fi
 chown -R postgres:postgres /_data/pg_backup
 chmod -R 700 /_data/pg_backup
 
-#Install HASP
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
-bash hasp.sh
-
 HOSTNAME=`hostname`
 echo $HOSTNAME
 #Start PGPRO container and restore database
@@ -38,3 +34,7 @@ systemctl enable --now pgpro
 podman run --name srv1c --ip 10.88.0.3 --hostname $HOSTNAME --add-host=pgpro:10.88.0.2 -dt -p 1540-1541:1540-1541 -p 1560-1591:1560-1591 -v /_data:/_data docker.io/kostikpl/rhel8:srv1c-8.3.1_rhel-8.4
 podman generate systemd --new --name srv1c > /etc/systemd/system/srv1c.service
 systemctl enable --now srv1c
+
+#Install HASP
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
+bash hasp.sh
