@@ -20,7 +20,7 @@ dnf -y update
 dnf -y install mc
 dnf -y install pcp-system-tools
 systemctl enable pmcd
-sed -i 's/enforcing/disabled/g' /etc/selinux/config
+#sed -i 's/enforcing/disabled/g' /etc/selinux/config
 
 #Setup disk
 if ! grep -q '/_container' /etc/fstab ; then
