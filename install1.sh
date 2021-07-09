@@ -27,7 +27,7 @@ chmod -R 40700 /_data/pg_backup
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
 bash hasp.sh
 
-HOSTNAME = `hostname`
+HOSTNAME=`hostname`
 #Start PGPRO container and restore database
 podman run --name pgpro --ip 10.88.0.2 --hostname $HOSTNAME -dt -p 5432:5432 -v /_data:/_data:Z docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
 podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
