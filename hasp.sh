@@ -48,5 +48,5 @@ curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HAS
 curl -LJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/usbhaspemul.service -o /etc/systemd/system/usbhaspemul.service
 systemctl daemon-reload
 
-systemctl enable --nov haspd
+systemctl enable --now haspd
 systemctl enable --now usbhaspemul

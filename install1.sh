@@ -14,8 +14,8 @@ useradd -r -M -g srv1c --uid=9998 srv1c
 #Check access rights
 chown -R root:root /_data
 chown -R root:root /_container
-chmod -R 40777 /_data
-chmod -R 40700 /_container
+chmod -R 777 /_data
+chmod -R 700 /_container
 
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
