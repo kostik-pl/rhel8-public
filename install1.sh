@@ -21,7 +21,7 @@ if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
 fi
 chown -R postgres:postgres /_data/pg_backup
-chmod -R 40700 /_data/pg_backup
+chmod -R 700 /_data/pg_backup
 
 #Install HASP
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
