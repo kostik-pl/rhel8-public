@@ -30,5 +30,8 @@ if ! grep -q '/_data' /etc/fstab ; then
 	  printf "$DISK2\n" >> /etc/fstab
 fi
 
+#Enable COCKPIT
+systemctl enable --now cockpit.socket
+
 #Reboot
 reboot

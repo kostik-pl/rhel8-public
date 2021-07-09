@@ -34,6 +34,10 @@ chmod -R 40700 /_data/pg_backup
 
 #Start PGPRO container and restore database
 podman run --name pgpro --ip 10.88.0.2 --hostname pgpro.local -dt -p 5432:5432 -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-8.4
+podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
+systemctl enable --now pgpro
 
 #Start SRV1C container and restore database
 podman run --name srv1c --ip 10.88.0.3 --hostname rhel8.local --add-host=pgpro.local:10.88.0.2 -dt -p 1540-1541:1540-1541 -p 1560-1591:1560-1591 -v /_data:/_data docker.io/kostikpl/rhel8:srv1c-8.3.1_rhel-8.4
+podman generate systemd --new --name srv1c > /etc/systemd/system/srv1c.service
+systemctl enable --now srv1c
