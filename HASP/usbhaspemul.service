@@ -8,4 +8,3 @@ ExecStart=/usr/bin/sh -c 'find /etc/usbhaspkey -name "*.json" | xargs /usr/local
 Restart=always
 [Install]
 WantedBy=multi-user.target
-#
