@@ -2,15 +2,15 @@
 
 cd /root
 dnf -y install glibc
-curl -LOJ https://www.dropbox.com/s/5gxb2vba3ti8v38/haspd-7.90-eter2centos.x86_64.rpm?dl=0
-curl -LOJ https://www.dropbox.com/s/lrma8iqmfvz86on/haspd-modules-7.90-eter2centos.x86_64.rpm?dl=0
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/haspd-7.90-eter2centos.x86_64.rpm
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/haspd-modules-7.90-eter2centos.x86_64.rpm
 dnf -y localinstall haspd*
 
 dnf -y install gcc gcc-c++ make kernel-devel jansson-devel libusb.i686 elfutils-libelf-devel
 cd /usr/src
-curl -LOJ https://www.dropbox.com/s/5vfu54w40iedt9o/libusb_vhci-0.8.tar.gz?dl=0
-curl -LOJ https://www.dropbox.com/s/ba8h9rqcezzeyht/vhci-hcd-1.15.tar.gz?dl=0
-curl -LOJ https://www.dropbox.com/s/icyfpxg1i1gmmwq/UsbHasp-master.tar.gz?dl=0
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/libusb_vhci-0.8.tar.gz
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/vhci-hcd-1.15.tar.gz
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/UsbHasp-master.tar.gz
 tar -xpf libusb_vhci-0.8.tar.gz
 tar -xpf vhci-hcd-1.15.tar.gz
 tar -xpf UsbHasp-master.tar.gz
@@ -42,9 +42,11 @@ make -s
 cp dist/Release/GNU-Linux/usbhasp /usr/local/sbin
 
 mkdir /etc/usbhaspkey/
-cd /etc/usbhaspkey/
-curl -LOJ https://www.dropbox.com/s/tk9l91ryuecmsog/1C_v8_MultiKey_100_user.json?dl=0
-curl -LOJ https://www.dropbox.com/s/18vc13uhl83b2ok/1C_v8_MultiKey_Server_x64.json?dl=0
+curl -LO https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/1C_v8_MultiKey_100_user.json -o /etc/usbhaspkey/1C_v8_MultiKey_100_user.json
+curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/1C_v8_MultiKey_Server_x64.json -o /etc/usbhaspkey/1C_v8_MultiKey_Server_x64.json
 
-curl -LJ https://www.dropbox.com/s/waf85xkbv29lr0t/usbhaspemul.service?dl=0 -o /etc/systemd/system/usbhaspemul.service
+curl -LJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/usbhaspemul.service -o /etc/systemd/system/usbhaspemul.service
 systemctl daemon-reload
+
+systemctl enable --nov haspd
+systemctl enable --now usbhaspemul
