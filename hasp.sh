@@ -2,15 +2,15 @@
 
 cd /root
 dnf -y install glibc
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/haspd-7.90-eter2centos.x86_64.rpm
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/haspd-modules-7.90-eter2centos.x86_64.rpm
+curl -LOJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/haspd-7.90-eter2centos.x86_64.rpm
+curl -LOJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/haspd-modules-7.90-eter2centos.x86_64.rpm
 dnf -y localinstall haspd*
 
 dnf -y install gcc gcc-c++ make kernel-devel jansson-devel libusb.i686 elfutils-libelf-devel
 cd /usr/src
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/libusb_vhci-0.8.tar.gz
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/vhci-hcd-1.15.tar.gz
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/UsbHasp-master.tar.gz
+curl -LOJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/libusb_vhci-0.8.tar.gz
+curl -LOJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/vhci-hcd-1.15.tar.gz
+curl -LOJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/UsbHasp-master.tar.gz
 tar -xpf libusb_vhci-0.8.tar.gz
 tar -xpf vhci-hcd-1.15.tar.gz
 tar -xpf UsbHasp-master.tar.gz
@@ -42,10 +42,10 @@ make -s
 cp dist/Release/GNU-Linux/usbhasp /usr/local/sbin
 
 mkdir /etc/usbhaspkey/
-curl -LO https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/1C_v8_MultiKey_100_user.json -o /etc/usbhaspkey/1C_v8_MultiKey_100_user.json
-curl -LOJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/1C_v8_MultiKey_Server_x64.json -o /etc/usbhaspkey/1C_v8_MultiKey_Server_x64.json
+curl -LJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/1C_v8_MultiKey_100_user.json -o /etc/usbhaspkey/1C_v8_MultiKey_100_user.json
+curl -LJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/1C_v8_MultiKey_Server_x64.json -o /etc/usbhaspkey/1C_v8_MultiKey_Server_x64.json
 
-curl -LJ https://raw.githubusercontent.com/kostik-pl/rhel8-public/blob/main/HASP/usbhaspemul.service -o /etc/systemd/system/usbhaspemul.service
+curl -LJ https://github.com/kostik-pl/rhel8-public/raw/7d5599c94292d0609503aa525dec718df1f9ec90/HASP/usbhaspemul.service -o /etc/systemd/system/usbhaspemul.service
 systemctl daemon-reload
 
 systemctl enable --now haspd
