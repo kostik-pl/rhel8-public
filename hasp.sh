@@ -25,9 +25,9 @@ sed -i 's/VERIFY_READ, //' usb-vhci-iocifc.c
 sed -i 's/VERIFY_WRITE, //' usb-vhci-iocifc.c
 make KVERSION=${KVER}
 make install
-echo "usb_vhci_hcd" | sudo tee /etc/modules-load.d/usb_vhci.conf
+echo "usb_vhci_hcd" | tee /etc/modules-load.d/usb_vhci.conf
 modprobe usb_vhci_hcd
-echo "usb_vhci_iocifc" | sudo tee -a /etc/modules-load.d/usb_vhci.conf
+echo "usb_vhci_iocifc" | tee -a /etc/modules-load.d/usb_vhci.conf
 modprobe usb_vhci_iocifc
 
 cd /usr/src/libusb_vhci-0.8
