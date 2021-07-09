@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /root
 dnf -y install glibc
 curl -LOJ https://www.dropbox.com/s/5gxb2vba3ti8v38/haspd-7.90-eter2centos.x86_64.rpm?dl=0
