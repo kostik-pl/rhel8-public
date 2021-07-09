@@ -36,5 +36,5 @@ podman run --name srv1c --ip 10.88.0.3 --hostname $HOSTNAME --add-host=pgpro:10.
 #systemctl enable --now srv1c
 
 #Install HASP
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
-bash hasp.sh
+#curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
+#bash hasp.sh
