@@ -16,7 +16,6 @@ tar -xpf vhci-hcd-1.15.tar.gz
 tar -xpf UsbHasp-master.tar.gz
 KVER=`uname -r`
 
-
 cd /usr/src/vhci-hcd-1.15
 mkdir -p linux/${KVER}/drivers/usb/core
 cp /usr/src/kernels/${KVER}/include/linux/usb/hcd.h linux/${KVER}/drivers/usb/core
