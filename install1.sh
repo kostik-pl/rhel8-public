@@ -36,5 +36,5 @@ podman generate systemd --new --name srv1c > /etc/systemd/system/srv1c.service
 systemctl enable --now srv1c
 
 #Install HASP
-#curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
-#bash hasp.sh
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
+bash hasp.sh
