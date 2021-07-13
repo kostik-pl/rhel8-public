@@ -1,0 +1,15 @@
+[Unit]
+Description=1C:Enterprise Remote Administration Service
+After=network.target
+Requires=srv1cv83.service
+[Service]
+Type=simple
+ExecStart=/opt/1C/v8.3/x86_64/ras cluster
+KillSignal=SIGINT
+PrivateTmp=true
+Restart=on-failure
+RestartSec=5
+User=usr1cv8
+Group=grp1cv8
+[Install]
+WantedBy=multi-user.target
