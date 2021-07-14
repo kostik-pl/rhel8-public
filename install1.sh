@@ -31,9 +31,9 @@ podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
 systemctl enable --now pgpro
 
 #Start SRV1C container and restore database
-podman run --name srv1c --ip 10.88.0.3 --hostname $HOSTNAME --add-host=pgpro.local:10.88.0.2 -dt -p 80:80 -p 1540-1541:1540-1541 -p 1545:1545 -p 1560-1591:1560-1591 -v /_data:/_data -v /dev/bus/usb:/dev/bus/usb docker.io/kostikpl/rhel8:srv1c-8.3.1_rhel-ubi-init-8.4
-podman generate systemd --new --name srv1c > /etc/systemd/system/srv1c.service
-systemctl enable --now srv1c
+#podman run --name srv1c --ip 10.88.0.3 --hostname $HOSTNAME --add-host=pgpro.local:10.88.0.2 -dt -p 80:80 -p 1540-1541:1540-1541 -p 1545:1545 -p 1560-1591:1560-1591 -v /_data:/_data -v /dev/bus/usb:/dev/bus/usb docker.io/kostikpl/rhel8:srv1c-8.3.1_rhel-ubi-init-8.4
+#podman generate systemd --new --name srv1c > /etc/systemd/system/srv1c.service
+#systemctl enable --now srv1c
 
 #Install HASP
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh

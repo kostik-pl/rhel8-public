@@ -19,7 +19,7 @@ fi
 dnf -y update
 dnf -y install mc
 dnf -y install pcp-system-tools
-#systemctl enable pmcd
+systemctl enable pmcd
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 
 #Setup disk
