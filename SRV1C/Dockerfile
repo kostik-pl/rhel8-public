@@ -6,6 +6,8 @@ RUN dnf install -y glibc-langpack-ru
 # update from repository
 RUN dnf update -y
 
+RUN dnf install -y realmd sssd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation authselect-compat
+
 #Set 1C Enterprise variables
 ENV SRV1CV8_DATA=/_data/srv1c_inf_log
 ENV SRV1CV8_DEBUG=1
