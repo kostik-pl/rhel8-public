@@ -8,8 +8,8 @@ sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_containe
 #Add GROUP and USER same as in container
 groupadd -r postgres --gid=9999
 useradd -r -M -g postgres --uid=9999 postgres
-groupadd -r srv1c --gid=9998
-useradd -r -M -g srv1c --uid=9998 srv1c
+groupadd -r grp1cv8 --gid=9998
+useradd -r -M -g grp1cv8 --uid=9998 usr1cv8
 
 #Check access rights
 chown -R root:root /_data
