@@ -20,7 +20,7 @@ dnf -y update
 dnf -y install mc
 dnf -y install pcp-system-tools
 systemctl enable pmcd
-systemctl enable --now cockpit.socket
+systemctl enable cockpit.socket
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 
 #Setup disk
