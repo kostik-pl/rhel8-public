@@ -38,3 +38,10 @@ systemctl enable --now pgpro
 #Install HASP
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
 bash hasp.sh
+
+#Install 1C Enterprise server and httpd(Apache)
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/1c.sh
+bash 1c.sh
+
+#Clean
+dnf clean all
