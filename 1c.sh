@@ -1,4 +1,4 @@
-INSTALL_PATH='/home/sadru/install'
+INSTALL_PATH='/home/sa.dru/install'
 # install 1C Enterprise server requirements from custom packages
 dnf localinstall -y $INSTALL_PATH/webkitgtk3-2.4.11-7.el8.x86_64.rpm
 dnf localinstall -y $INSTALL_PATH/msttcorefonts-2.5-1.noarch.rpm
@@ -11,9 +11,12 @@ dnf localinstall -y $INSTALL_PATH/1C_Enterprise*.rpm
 #sed -i '4iSRV1CV8_DEBUG=1' /etc/init.d/srv1cv83
 #sed -i '5iSRV1CV8_DATA=/_data/srv1c_inf_log' /etc/init.d/srv1cv83
 rm /etc/rc.d/init.d/srv1cv83
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83 -o /etc/sysconfig/
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83.service -o /etc/systemd/system/
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83-ras.service -o /etc/systemd/system/
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83
+cp srv1cv83 /etc/sysconfig/
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83.service
+cp srv1cv83.service /etc/systemd/system/
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83-ras.service
+cp srv1cv83-ras.service /etc/systemd/system/
 systemctl enable --now srv1cv83
 systemctl enable --now srv1cv83-ras
 
