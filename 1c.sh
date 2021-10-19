@@ -1,4 +1,4 @@
-# install required libs
+# install 1C Enterprise server requirements from custom packages
 dnf localinstall -y $INSTALL_PATH/webkitgtk3-2.4.11-7.el8.x86_64.rpm
 dnf localinstall -y $INSTALL_PATH/msttcorefonts-2.5-1.noarch.rpm
 
@@ -17,8 +17,9 @@ systemctl enable --now srv1cv83
 systemctl enable --now srv1cv83-ras
 
 # install httpd
-dnf -y install httpd; yum clean all; systemctl enable httpd
+dnf -y install httpd
 mkdir -p /_data/httpd
 chown root:root /_data/httpd
 chmod 700 /_data/httpd
 printf "\nInclude /_data/httpd/conf/extra/httpd-1C-pub.conf\n" >> /etc/httpd/conf/httpd.conf
+systemctl enable --now httpd
