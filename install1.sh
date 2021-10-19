@@ -26,7 +26,7 @@ chmod -R 700 /_data/pg_backup
 HOSTNAME=`hostname`
 
 #Start PGPRO container and restore database
-podman run --name pgpro --ip 10.88.0.2 --hostname $HOSTNAME -dt -p 5432:5432 -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-11.12.1_rhel-ubi-8.4
+podman run --name pgpro --ip 10.88.0.2 --hostname $HOSTNAME -dt -p 5432:5432 -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-13.4.1_rhel-ubi-8.4
 podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
 systemctl enable --now pgpro
 
