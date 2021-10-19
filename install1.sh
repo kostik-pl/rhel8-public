@@ -24,7 +24,7 @@ chown -R postgres:postgres /_data/pg_backup
 chmod -R 700 /_data/pg_backup
 
 #Change firewall rules
-curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/public.xml -o /etc/firewalld/zones/public.xml
+curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/public.xml -o /etc/firewalld/zones/
 firewall-cmd --reload
 
 HOSTNAME=`hostname`
