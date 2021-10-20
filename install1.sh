@@ -14,7 +14,17 @@ useradd -r -M -g grp1cv8 --uid=9998 usr1cv8
 #Change access rights
 if [ ! -d "/_data/httpd" ] ; then
     mkdir /_data/httpd
-
+fi
+if [ ! -d "/_data/httpd" ] ; then
+    mkdir /_data/httpd
+fi
+if [ ! -f "/_data/httpd/conf/extra/httpd-1C-pub.conf"] ; then
+    curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/httpd-1C-pub.conf
+    cp httpd-1C-pub.conf /_data/httpd/conf/extra
+fi
+if [ ! -f "/_data/httpd/pub_1c/default.vrd"] ; then
+    curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/default.vrd
+    cp default.vrd /_data/httpd/pub_1c
 fi
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
