@@ -1,6 +1,6 @@
 # rhel8-public
-su root
 mkdir install
+su root
 cd install
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/install.sh
 bash install.sh
