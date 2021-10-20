@@ -5,6 +5,14 @@ DISK1="/dev/disk/by-label/_container /_container auto nosuid,nodev,nofail,x-gvfs
 FILE2="/dev/disk/by-label/_data"
 DISK2="/dev/disk/by-label/_data /_data auto nosuid,nodev,nofail,x-gvfs-show 0 0"
 
+#Setup system
+dnf -y update
+dnf -y install mc
+dnf -y install pcp-system-tools
+systemctl enable pmcd
+systemctl enable cockpit.socket
+sed -i 's/enforcing/disabled/g' /etc/selinux/config
+
 #Check disk
 if [ ! -L "$FILE1" ] ; then
     echo "Disk labeled as $FILE1 not found"
@@ -14,14 +22,6 @@ if [ ! -L "$FILE2" ] ; then
     echo "Disk labeled as $FILE2 not found"
     exit 1
 fi
-
-#Setup system
-dnf -y update
-dnf -y install mc
-dnf -y install pcp-system-tools
-systemctl enable pmcd
-systemctl enable cockpit.socket
-sed -i 's/enforcing/disabled/g' /etc/selinux/config
 
 #Setup disk
 if ! grep -q '/_container' /etc/fstab ; then

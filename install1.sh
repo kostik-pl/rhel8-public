@@ -11,17 +11,31 @@ useradd -r -M -g postgres --uid=9999 postgres
 groupadd -r grp1cv8 --gid=9998
 useradd -r -M -g grp1cv8 --uid=9998 usr1cv8
 
-#Check access rights
-chown -R root:root /_data
-chown -R root:root /_container
-chmod -R 777 /_data
-chmod -R 700 /_container
-
+#Change access rights
+if [ ! -d "/_data/httpd" ] ; then
+    mkdir /_data/httpd
+fi
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
 fi
+if [ ! -d "/_data/srv1c_inf_log" ] ; then
+    mkdir /_data/srv1c_inf_log
+fi
+chown -R root:root /_data
+chmod -R 777 /_data
+chown -R root:root /_container
+chmod -R 700 /_container
+chown -R root:root /_data/httpd
+chmod -R 700 /_data/httpd
 chown -R postgres:postgres /_data/pg_backup
-chmod -R 700 /_data/pg_backup
+chmod -R 777 /_data/pg_backup
+chown -R postgres:postgres /_data/pd_data
+chmod -R 700 /_data/pg_data
+chown -R usr1cv8:grp1cv8 /_data/srv1c_inf_log
+chmod -R 700 /_data/srv1c_inf_log
+
+#Clean old 1c work directory
+rm -rf /_data/srv1c_inf_log/reg_1541/!(*.lst)
 
 #Change firewall rules
 curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/public.xml
@@ -34,6 +48,7 @@ HOSTNAME=`hostname`
 podman run --name pgpro --ip 10.88.0.2 --hostname $HOSTNAME -dt -p 5432:5432 -v /_data:/_data docker.io/kostikpl/rhel8:pgpro-13.4.1_rhel-ubi-8.4
 podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
 systemctl enable --now pgpro
+podman exec -ti pgpro psql -c "ALTER USER postgres WITH PASSWORD 'RheujvDhfub12';ALTER USER srv1c WITH PASSWORD '$GitybwZ - ZxvtyM$';"
 
 #Install HASP
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
