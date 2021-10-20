@@ -1,4 +1,4 @@
-INSTALL_PATH='/home/sa.dru/install'
+INSTALL_PATH='/home/sadru/install'
 # install 1C Enterprise server requirements from custom packages
 dnf localinstall -y $INSTALL_PATH/webkitgtk3-2.4.11-7.el8.x86_64.rpm
 dnf localinstall -y $INSTALL_PATH/msttcorefonts-2.5-1.noarch.rpm
