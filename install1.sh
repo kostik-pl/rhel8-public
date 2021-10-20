@@ -14,6 +14,7 @@ useradd -r -M -g grp1cv8 --uid=9998 usr1cv8
 #Change access rights
 if [ ! -d "/_data/httpd" ] ; then
     mkdir /_data/httpd
+
 fi
 if [ ! -d "/_data/pg_backup" ] ; then
     mkdir /_data/pg_backup
