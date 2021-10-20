@@ -2,9 +2,9 @@
 <point xmlns="http://v8.1c.ru/8.2/virtual-resource-system"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                base="/UE_laz"
-                ib="Srvr=localhost;Ref=UE_laz">
-        <debug enable="true" protocol="tcp" url="tcp://s-app-laz"/>
+                base="/UE_XX"
+                ib="Srvr=localhost;Ref=UE_XX">
+        <debug enable="true" protocol="tcp" url="tcp://s-app-XX"/>
         <standardOdata enable="false"
                         reuseSessions="autouse"
                         sessionMaxAge="20"

@@ -18,11 +18,14 @@ fi
 if [ ! -d "/_data/httpd" ] ; then
     mkdir /_data/httpd
 fi
-if [ ! -f "/_data/httpd/conf/extra/httpd-1C-pub.conf"] ; then
+if [ ! -f "/_data/httpd/conf/extra/httpd-1C-pub.conf" ] ; then
+    mkdir /_data/httpd/conf
+    mkdir /_data/httpd/conf/extra
     curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/httpd-1C-pub.conf
     cp httpd-1C-pub.conf /_data/httpd/conf/extra
 fi
-if [ ! -f "/_data/httpd/pub_1c/default.vrd"] ; then
+if [ ! -f "/_data/httpd/pub_1c/default.vrd" ] ; then
+    mkdir /_data/httpd/pub_1c
     curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/default.vrd
     cp default.vrd /_data/httpd/pub_1c
 fi
@@ -40,7 +43,7 @@ chown -R root:root /_data/httpd
 chmod -R 700 /_data/httpd
 chown -R postgres:postgres /_data/pg_backup
 chmod -R 777 /_data/pg_backup
-chown -R postgres:postgres /_data/pd_data
+chown -R postgres:postgres /_data/pg_data
 chmod -R 700 /_data/pg_data
 chown -R usr1cv8:grp1cv8 /_data/srv1c_inf_log
 chmod -R 700 /_data/srv1c_inf_log
