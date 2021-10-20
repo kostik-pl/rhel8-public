@@ -35,7 +35,9 @@ chown -R usr1cv8:grp1cv8 /_data/srv1c_inf_log
 chmod -R 700 /_data/srv1c_inf_log
 
 #Clean old 1c work directory
+shopt -s extglob
 rm -rf /_data/srv1c_inf_log/reg_1541/!(*.lst)
+shopt -u extglob
 
 #Change firewall rules
 curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/public.xml
