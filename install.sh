@@ -7,6 +7,7 @@ DISK2="/dev/disk/by-label/_data /_data auto nosuid,nodev,nofail,x-gvfs-show 0 0"
 
 #Setup system
 dnf -y update
+dnf -y krb5-workstation
 dnf -y install mc
 dnf -y install pcp-system-tools
 systemctl enable pmcd
