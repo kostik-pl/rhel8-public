@@ -1,0 +1,6 @@
+[pgpro-14]
+name=PostgresPro Standard for rhel
+baseurl=http://repo.postgrespro.ru/pgpro-14/rhel/$releasever/os/$basearch/rpms
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-POSTGRESPRO
