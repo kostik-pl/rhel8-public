@@ -4,7 +4,7 @@ After=network.target
 Requires=srv1cv83.service
 [Service]
 Type=simple
-ExecStart=/opt/1C/v8.3/x86_64/ras cluster
+ExecStart=/opt/1C/x86_64/8.3.20.1789/ras cluster
 KillSignal=SIGINT
 PrivateTmp=true
 Restart=on-failure
