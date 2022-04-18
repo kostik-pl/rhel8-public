@@ -77,8 +77,8 @@ bash hasp.sh
 #systemctl enable --now srv1c
 
 #Install 1C Enterprise server and httpd(Apache)
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/1c.sh
-bash 1c.sh
+#curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/1c.sh
+#bash 1c.sh
 
 #Clean
 dnf clean all
