@@ -1,7 +1,9 @@
 INSTALL_PATH='/home/sadru/install'
 # install 1C Enterprise server requirements from custom packages
-dnf localinstall -y $INSTALL_PATH/webkitgtk3-2.4.11-7.el8.x86_64.rpm
-dnf localinstall -y $INSTALL_PATH/msttcorefonts-2.5-1.noarch.rpm
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/webkitgtk3-2.4.11-7.el8.x86_64.rpm
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/msttcorefonts-2.5-1.noarch.rpm
+dnf localinstall -y webkitgtk3-2.4.11-7.el8.x86_64.rpm
+dnf localinstall -y msttcorefonts-2.5-1.noarch.rpm
 
 # install 1C Enterprise requirements from repositories
 dnf install -y libpng12 fontconfig libgsf freetype glib2 bzip2
