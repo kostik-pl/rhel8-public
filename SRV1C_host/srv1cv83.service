@@ -3,7 +3,7 @@ Description=1C:Enterprise server
 After=network.target
 [Service]
 Type=simple
-ExecStart=/opt/1C/x86_64/8.3.1789/ragent -d /_data/srv1c_inf_log -debug
+ExecStart=/opt/1cv8/x86_64/8.3.20.1789/ragent -d /_data/srv1c_inf_log -debug
 KillSignal=SIGINT
 PrivateTmp=true
 Restart=on-failure
