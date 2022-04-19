@@ -69,9 +69,6 @@ podman exec -ti pgpro psql -c "ALTER USER srv1c WITH PASSWORD '\'\$'GitybwZ ''-'
 
 # install httpd
 dnf -y install httpd
-#mkdir -p /_data/httpd
-#chown root:root /_data/httpd
-#chmod 700 /_data/httpd
 printf "\nInclude /_data/httpd/conf/extra/httpd-1C-pub.conf\n" >> /etc/httpd/conf/httpd.conf
 systemctl enable --now httpd
 
