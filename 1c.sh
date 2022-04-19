@@ -16,5 +16,5 @@ curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_ho
 cp srv1cv83.service /etc/systemd/system/
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83-ras.service
 cp srv1cv83-ras.service /etc/systemd/system/
-systemctl enable --now srv1cv83
-systemctl enable --now srv1cv83-ras
+#systemctl enable srv1cv83
+#systemctl enable srv1cv83-ras
