@@ -21,12 +21,12 @@ fi
 if [ ! -f "/_data/httpd/conf/extra/httpd-1C-pub.conf" ] ; then
     mkdir /_data/httpd/conf
     mkdir /_data/httpd/conf/extra
-    curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/httpd-1C-pub.conf
+    curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/HTTPD/httpd-1C-pub.conf
     cp httpd-1C-pub.conf /_data/httpd/conf/extra
 fi
 if [ ! -f "/_data/httpd/pub_1c/default.vrd" ] ; then
     mkdir /_data/httpd/pub_1c
-    curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/HTTPD/default.vrd
+    curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/HTTPD/default.vrd
     cp default.vrd /_data/httpd/pub_1c
 fi
 if [ ! -d "/_data/pg_backup" ] ; then
@@ -54,7 +54,7 @@ rm -rf /_data/srv1c_inf_log/reg_1541/!(*.lst)
 shopt -u extglob
 
 #Change firewall rules
-curl -LJO https://github.com/kostik-pl/rhel8-public/raw/main/public.xml
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/public.xml
 cp public.xml /etc/firewalld/zones/
 firewall-cmd --reload
 
