@@ -1,15 +1,21 @@
 [Unit]
-Description=1C:Enterprise Remote Administration Service
+Description=1C:Enterprise Remote Administration Service 8.3 (%I)
+After=syslog.target
 After=network.target
-Requires=srv1cv83.service
+
 [Service]
-Type=simple
-ExecStart=/opt/1cv8/x86_64/8.3.20.1789/ras cluster
-KillSignal=SIGINT
-PrivateTmp=true
-Restart=on-failure
-RestartSec=5
+Type=forking
 User=usr1cv8
 Group=grp1cv8
+
+OOMScoreAdjust=-100
+
+ExecStart=/opt/1cv8/x86_64/8.3.16.1973/ras cluster --daemon -p 1545 127.0.0.1:1540
+ExecReload=/bin/kill -s HUP  $MAINPID
+ExecStop=/bin/kill -s QUIT  $MAINPID
+
+TimeoutSec=300
+Restart=always
+
 [Install]
 WantedBy=multi-user.target
