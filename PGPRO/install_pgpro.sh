@@ -1,6 +1,8 @@
 #!/bin/bash
+
 #curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/PGPRO/install_pgpro.sh
 #bash install_pgpro.sh
+
 #Setup PODMAN
 dnf -y module install container-tools
 dnf -y install podman-docker
