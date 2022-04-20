@@ -1,3 +1,65 @@
+#!/bin/bash
+
+#Setup PODMAN
+dnf -y module install container-tools
+dnf -y install podman-docker
+sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_container"/g' /etc/containers/storage.conf
+
+#Add GROUP and USER same as in container
+groupadd -r postgres --gid=9999
+useradd -r -M -g postgres --uid=9999 postgres
+groupadd -r grp1cv8 --gid=9998
+useradd -r -m -g grp1cv8 --uid=9998 usr1cv8
+
+#Change access rights
+if [ ! -d "/_data/httpd" ] ; then
+    mkdir /_data/httpd
+fi
+if [ ! -d "/_data/httpd" ] ; then
+    mkdir /_data/httpd
+fi
+if [ ! -f "/_data/httpd/conf/extra/httpd-1C-pub.conf" ] ; then
+    mkdir /_data/httpd/conf
+    mkdir /_data/httpd/conf/extra
+    curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/HTTPD/httpd-1C-pub.conf
+    cp httpd-1C-pub.conf /_data/httpd/conf/extra
+fi
+if [ ! -f "/_data/httpd/pub_1c/default.vrd" ] ; then
+    mkdir /_data/httpd/pub_1c
+    curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/HTTPD/default.vrd
+    cp default.vrd /_data/httpd/pub_1c
+fi
+if [ ! -d "/_data/pg_backup" ] ; then
+    mkdir /_data/pg_backup
+fi
+if [ ! -d "/_data/srv1c_inf_log" ] ; then
+    mkdir /_data/srv1c_inf_log
+fi
+chown -R root:root /_data
+chmod -R 777 /_data
+chown -R root:root /_container
+chmod -R 700 /_container
+chown -R root:root /_data/httpd
+chmod -R 700 /_data/httpd
+chown -R postgres:postgres /_data/pg_backup
+chmod -R 777 /_data/pg_backup
+chown -R postgres:postgres /_data/pg_data
+chmod -R 700 /_data/pg_data
+chown -R usr1cv8:grp1cv8 /_data/srv1c_inf_log
+chmod -R 700 /_data/srv1c_inf_log
+
+#Clean old 1c work directory
+shopt -s extglob
+rm -rf /_data/srv1c_inf_log/reg_1541/!(*.lst)
+shopt -u extglob
+
+#Change firewall rules
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/public.xml
+cp public.xml /etc/firewalld/zones/
+firewall-cmd --reload
+
+HOSTNAME=`hostname`
+
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/PGPRO/Dockerfile
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/PGPRO/RPM-GPG-KEY-POSTGRESPRO
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/PGPRO/pgpro-14.repo
