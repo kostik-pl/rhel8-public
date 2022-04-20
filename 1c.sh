@@ -14,7 +14,7 @@ chmod +x setup-full-8.3.20.1789-x86_64.run
 ./setup-full-8.3.20.1789-x86_64.run --mode unattended --enable-components server,ws,uk,ru
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83.service
 #cp srv1cv83.service /etc/systemd/system/
-curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83-ras.service
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/ras1cv83.service
 #cp srv1cv83-ras.service /etc/systemd/system/
 #systemctl enable srv1cv83
 #systemctl enable srv1cv83-ras
