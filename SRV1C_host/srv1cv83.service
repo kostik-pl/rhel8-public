@@ -48,9 +48,12 @@ Environment=KRB5_KTNAME=
 
 ExecStart=/bin/sh -c "/opt/1cv8/x86_64/%I/ragent -d ${SRV1CV8_DATA} -port ${SRV1CV8_PORT} -regport ${SRV1CV8_REGPORT} -range ${SRV1CV8_RANGE} \
 -seclev ${SRV1CV8_SECLEV} -pingPeriod ${SRV1CV8_PING_PERIOD} -pingTimeout ${SRV1CV8_PING_TIMEOUT} ${SRV1CV8_DEBUG}"
-Restart=always
+
+KillSignal=SIGINT
+TimeoutSec=300
+PrivateTmp=true
+Restart=on-failure
 RestartSec=5
 
 [Install]
-DefaultInstance=current
 WantedBy=multi-user.target
