@@ -9,7 +9,7 @@ sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_containe
 groupadd -r postgres --gid=9999
 useradd -r -M -g postgres --uid=9999 postgres
 groupadd -r grp1cv8 --gid=9998
-useradd -r -M -g grp1cv8 --uid=9998 usr1cv8
+useradd -r -m -g grp1cv8 --uid=9998 usr1cv8
 
 #Change access rights
 if [ ! -d "/_data/httpd" ] ; then
