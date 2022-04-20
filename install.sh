@@ -32,5 +32,8 @@ if ! grep -q '/_data' /etc/fstab ; then
 	  printf "$DISK2\n" >> /etc/fstab
 fi
 
+#Disable IP6
+grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"
+
 #Reboot
 reboot
