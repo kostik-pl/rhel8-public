@@ -24,5 +24,5 @@ chkconfig --add srv1cv83
 chkconfig srv1cv83 on
 
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/ras1cv83.service
-cp srv1cv83-ras.service /etc/systemd/system/
+cp ras1cv83.service /etc/systemd/system/
 systemctl enable ras1cv83
