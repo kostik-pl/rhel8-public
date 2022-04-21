@@ -19,12 +19,9 @@ ln -s /opt/1cv8/x86_64/8.3.20.1789/srv1cv83 /etc/init.d/srv1cv83
 ln -s /opt/1cv8/x86_64/8.3.20.1789/srv1cv83.conf /etc/sysconfig/srv1cv83
 sed -i 's/#SRV1CV8_DEBUG=/SRV1CV8_DEBUG=1/' /etc/sysconfig/srv1cv83
 sed -i 's/#SRV1CV8_DATA=/SRV1CV8_DATA=\/_data\/srv1c_inf_log/' /etc/sysconfig/srv1cv83
+chkconfig --add srv1cv83
+chkconfig srv1cv83 on
 
-sed -i 's/#SRV1CV8_DATA=/SRV1CV8_DATA="\/_data"' /etc/sysconfig/srv1cv83
-
-#curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/srv1cv83.service
-#cp srv1cv83.service /etc/systemd/system/
-#curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/ras1cv83.service
-#cp srv1cv83-ras.service /etc/systemd/system/
-#systemctl enable srv1cv83
-#systemctl enable srv1cv83-ras
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/ras1cv83.service
+cp srv1cv83-ras.service /etc/systemd/system/
+systemctl enable srv1cv83-ras
