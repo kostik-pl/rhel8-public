@@ -15,6 +15,7 @@ chmod +x setup-full-8.3.20.1789-x86_64.run
 #./setup-full-8.3.20.1789-x86_64.run --mode unattended --enable-components server,server_admin,ws,uk,ru
 #We use pre-installed GNOME and manual installation
 ./setup-full-8.3.20.1789-x86_64.run
+
 ln -s /opt/1cv8/x86_64/8.3.20.1789/srv1cv83 /etc/init.d/srv1cv83
 ln -s /opt/1cv8/x86_64/8.3.20.1789/srv1cv83.conf /etc/sysconfig/srv1cv83
 sed -i 's/#SRV1CV8_DEBUG=/SRV1CV8_DEBUG=1/' /etc/sysconfig/srv1cv83
