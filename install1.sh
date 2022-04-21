@@ -84,6 +84,8 @@ bash hasp.sh
 #Install 1C Enterprise server on host
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/1c.sh
 bash 1c.sh
+systemctl start srv1cv83
+systemctl start ras1cv83
 
 #Clean
 dnf clean all
