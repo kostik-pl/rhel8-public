@@ -65,7 +65,7 @@ podman run --name pgpro --ip 10.88.0.2 --hostname $HOSTNAME -dt -p 5432:5432 -v 
 podman generate systemd --new --name pgpro > /etc/systemd/system/pgpro.service
 systemctl enable --now pgpro
 podman exec -ti pgpro psql -c "ALTER USER postgres WITH PASSWORD 'RheujvDhfub72';"
-podman exec -ti pgpro psql -c "ALTER USER srv1c WITH PASSWORD '\$GitybwZ ''-'' ZxvtyM\$';" # $GitybwZ - ZxvtyM$
+podman exec -ti pgpro psql -c "ALTER USER srv1c WITH PASSWORD '\$GitybwZ - ZxvtyM\$';" # $GitybwZ - ZxvtyM$
 
 # install httpd
 dnf -y install httpd
