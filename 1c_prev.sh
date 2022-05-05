@@ -33,3 +33,6 @@ curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_ho
 cp ras1cv83.service /etc/systemd/system/
 systemctl enable ras1cv83
 https://drive.google.com/file/d/1-f5mcno9I0m0gh3AdP076xoLRvSDtbf0/view?usp=sharing
+
+systemctl start srv1cv83
+systemctl start ras1cv83
