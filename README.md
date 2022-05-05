@@ -10,3 +10,4 @@ bash install1.sh
 chmod 744 /_data/pg_backup/workout
 podman exec -ti pgpro bash
 psql < /_data/pg_backup/workout
+podman exec -ti pgpro psql -c "ALTER USER srv1c WITH PASSWORD '\$GitybwZ - ZxvtyM\$';"
