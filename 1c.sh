@@ -26,6 +26,11 @@ sed -i 's/Environment=SRV1CV8_DATA=\/home\/usr1cv8\/.1cv8\/1C\/1cv8/Environment=
 
 systemctl link /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
 systemctl link /opt/1cv8/x86_64/8.3.21.1302/ras-8.3.21.1302.service
+systemctl enable srv1cv8-8.3.21.1302@default
+systemctl enable ras-8.3.21.1302
+systemctl start srv1cv8-8.3.21.1302@default
+systemctl start ras-8.3.21.1302
+
 
 #mkdir /etc/systemd/system/srv1cv8-8.3.21.1302@current.service.d
 #cp override.conf /etc/systemd/system/srv1cv8-8.3.21.1302@current.service.d/
