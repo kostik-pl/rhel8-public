@@ -10,8 +10,8 @@ dnf install -y libpng12 #fontconfig libgsf freetype glib2 bzip2
 # install 1C Enterprise server packages from work dir
 rm /etc/rc.d/init.d/srv1cv83
 #Download form GOOGLE
-filename="setup-full-8.3.20.1789-x86_64.run"
-fileid="1-93xicHCwe9IACSzwQh1mXwtw2o5TeEg"
+filename="setup-full-8.3.21.1302-x86_64.run"
+fileid="1-a8DWtOLPhGgpow92x6ziFYPCE4lXlOc"
 html=`curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}"`
 curl -Lb ./cookie "https://drive.google.com/uc?export=download&`echo ${html}|grep -Po '(confirm=[a-zA-Z0-9\-_]+)'`&id=${fileid}" -o ${filename}
 #Donload from DROPBOX
