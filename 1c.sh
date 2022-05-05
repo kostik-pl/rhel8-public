@@ -22,13 +22,12 @@ chmod +x setup-full-8.3.21.1302-x86_64.run
 #We use pre-installed GNOME and manual installation
 ./setup-full-8.3.21.1302-x86_64.run
 
-#ln -s /opt/1cv8/x86_64/8.3.21.1302/srv1cv83 /etc/init.d/srv1cv83
-#ln -s /opt/1cv8/x86_64/8.3.21.1302/srv1cv83.conf /etc/sysconfig/srv1cv83
-sed -i 's/#SRV1CV8_DEBUG=/SRV1CV8_DEBUG=1/' /opt/1cv8/x86_64/8.3.21.1302/srv1cv83
-sed -i 's/#SRV1CV8_DATA=/SRV1CV8_DATA=\/_data\/srv1c_inf_log/' /opt/1cv8/x86_64/8.3.21.1302/srv1cv83
-#chkconfig --add srv1cv83
-#chkconfig srv1cv83 on
+sed -i 's/Environment=SRV1CV8_DEBUG=\n/Environment=SRV1CV8_DEBUG=1/\n' /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
+sed -i 's/Environment=SRV1CV8_DATA=/home/usr1cv8/.1cv8/1C/1cv8\n/Environment=SRV1CV8_DATA=\/_data\/srv1c_inf_log/\n' /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
 
+
+ln /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@{,default}.service
+systemctl link /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@default.service
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/ras1cv83.service
 cp ras1cv83.service /etc/systemd/system/
 systemctl enable ras1cv83
