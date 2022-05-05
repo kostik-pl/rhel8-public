@@ -28,3 +28,5 @@ chmod +x setup-full-8.3.21.1302-x86_64.run
 #systemctl link /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@default.service
 systemctl link /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
 systemctl link /opt/1cv8/x86_64/8.3.21.1302/ras-8.3.21.1302.service
+curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/SRV1C_host/override.conf
+cp override.conf /etc/systemd/system/srv1cv8-8.3.21.1302@current.service.d/
