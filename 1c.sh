@@ -21,7 +21,7 @@ chmod +x setup-full-8.3.21.1302-x86_64.run
 #We use pre-installed GNOME and manual installation
 ./setup-full-8.3.21.1302-x86_64.run
 
-sed -i 's/Environment=SRV1CV8_DEBUG=/Environment=SRV1CV8_DEBUG=1/' /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
+sed -i 's/Environment=SRV1CV8_DEBUG=/Environment=SRV1CV8_DEBUG=-debug/' /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
 sed -i 's/Environment=SRV1CV8_DATA=\/home\/usr1cv8\/.1cv8\/1C\/1cv8/Environment=SRV1CV8_DATA=\/_data\/srv1c_inf_log/' /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
 
 systemctl link /opt/1cv8/x86_64/8.3.21.1302/srv1cv8-8.3.21.1302@.service
