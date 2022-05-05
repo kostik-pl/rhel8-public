@@ -69,8 +69,7 @@ podman exec -ti pgpro psql -c "ALTER USER srv1c WITH PASSWORD '\$GitybwZ - Zxvty
 
 # install httpd
 dnf -y install httpd
-#printf "\nInclude /_data/httpd/conf/extra/httpd-1C-pub.conf\n" >> /etc/httpd/conf/httpd.conf
-#systemctl enable --now httpd
+systemctl enable --now httpd
 
 #Install HASP
 curl -LJO https://raw.githubusercontent.com/kostik-pl/rhel8-public/main/hasp.sh
