@@ -3,7 +3,7 @@
 #Setup PODMAN
 dnf -y module install container-tools
 dnf -y install podman-docker
-sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_container"/g' /etc/containers/storage.conf
+sed -i 's/graphroot = "\/var\/lib\/containers\/storage"/graphroot = "\/_containers"/g' /etc/containers/storage.conf
 
 #Add GROUP and USER same as in container
 groupadd -r postgres --gid=9999
